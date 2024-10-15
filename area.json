@@ -1,0 +1,115 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+    "width": "container",
+    "height": "container",
+    "data": {
+        "url": "consume.csv"
+      },
+      "config": {
+        "padding":20,
+        "axis": {
+            "labelColor": "white",
+            "titleColor": "white"
+          },
+          "legend": {
+            "labelColor": "white",
+            "titleColor": "white"
+          },
+          "title": {
+            "color": "white"
+          },
+          "view": {
+            "stroke": null
+          },
+          "background": "#333"
+        },
+      "transform": [
+        {
+          "fold": [
+            "2008-09",
+            "2009-10",
+            "2010-11",
+            "2011-12",
+            "2012-13",
+            "2013-14",
+            "2014-15",
+            "2015-16",
+            "2016-17",
+            "2017-18",
+            "2018-19",
+            "2019-20",
+            "2020-21",
+            "2021-22",
+            "2022-23"
+          ]
+        }
+
+      ],
+      "layer":[
+        {
+         "params": [{
+                  "name": "brush",
+                  "select": {"type": "interval", "encodings": ["x"]}
+                }],
+            "mark": {"type": "line",       "color": "#f4623a"},
+            "transform": [
+                {"filter": {"param": "brush"}}
+              ],
+            "encoding": {
+              "x": {
+
+                "field":"key",
+                "axis":{
+                    "grid": false
+                }
+              },
+              "y": {
+                "aggregate": "sum", "field": "value",
+                "axis":{
+                    "grid": false
+                }
+              },
+              "color":{
+                "field":"type",
+                "type":"nominal",
+                "scale":{
+                    "range":["#665347","#f4623a"]
+                }
+              }
+            }
+
+            },
+
+        {
+      "mark": {
+        "type": "point",
+        "tooltip": true,
+        "filled": true,
+        "size": 100,
+        "color": "#f4623a"
+      },
+      "encoding": {
+        "x": {
+          "field": "key"
+        },
+        "y": {
+          "aggregate": "sum",
+          "field": "value"
+        },
+        "color":{
+            "field":"type",
+            "type":"nominal",
+            "scale":{
+                "range":["#665347","#f4623a"]
+            }
+          },
+        "tooltip": [
+          {"field": "key", "type": "nominal", "title": "Date"},
+          {    "aggregate": "sum", "field": "value","title":"consumption"}
+        ]
+      }}
+      ]
+
+
+  }

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold">Visualizing Australia’s Environmental Impact and Energy Use</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <p class="text-white-75 mb-5">Explore comprehensive data on Australia’s Total CO2 equivalent emissions, including land use, land-use change, and forestry. Delve into the country's renewable energy consumption by fuel type and industry, with energy units provided for detailed insights.
+                        </p>
+                        <a class="btn btn-primary btn-xl" href="#about">Find Out More</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- About-->
+        <section class="page-section bg-primary" id="about">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 class="text-white mt-0">Unveiling Australia’s Energy and Emission Trends</h2>
+                        <hr class="divider divider-light" />
+                        <p class="text-white-75 mb-4">Discover the intricate balance between Australia’s CO2 emissions and renewable energy consumption. With detailed insights on fuel types and industries, this visualization will help you understand the environmental shifts shaping the nation’s future.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <style>
+            .vega-bindings{
+                text-align: center;
+            }
+            .description {
+                font-size: 16px; 
+                color: #666;
+                margin-top: 20px;
+                text-align: center;
+                max-width: 800px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+                line-height: 1.6; 
+            }
+        </style>
+        <main style="display: grid; align-items: center; justify-items: center;">
+            <hr>
+            <div>
+                <hr>
+                <div>
+                    <h1 style="text-align: center;">Annual CO2 Equivalent Emissions by State in Australia</h1>
+                </div>
+                <div id="map" style="width: 80vw; height: 90vh"></div>
+                <p class="description">
+                    This map visualizes the Total CO2 equivalent emissions across Australia’s states from 1990 to 2020. 
+                    The emissions data is categorized by five major contributing factors: energy consumption, industrial processes, 
+                    agriculture, land use and land-use changes (including forestry), and waste management. Each state's emissions level 
+                    reflects the combined impact of these activities, offering insights into how various sectors have contributed to greenhouse gas emissions over time. 
+                    By selecting different years, you can easily observe how the colors change, reflecting shifts in emissions across regions and the activities that have influenced these variations
+                </p>
+            </div>
+            <div>
+            <hr>
+                <div>
+                    <h1 style="text-align: center;">Australian Renewable Energy Consumption by Fuel Type and Industry</h1>
+                </div>
+                <div id="circle" style="width: 80vw; height: 90vh"></div>
+                <p class="description">
+                    This bubble chart represents Australia's renewable energy consumption by fuel type and industry from various categories. The size of each bubble reflects the consumption level of a particular fuel source or energy-related activity. Categories include traditional fuels such as biomass, biofuels, and biogas, as well as renewable energy sources like wind, hydro, and solar power. Other sectors, such as agriculture, mining, manufacturing, and residential, show how these industries contribute to energy consumption. By examining the chart, you can gain insights into the diverse energy sources fueling Australian industries and how their usage has evolved over time.
+                </p>
+            </div>
+            <div>
+            <hr>
+                <div>
+                    <h1 style="text-align: center;">Australian Energy Consumption Over Time: Fuel vs. Industry</h1>
+                </div>
+                <div id="area" style="width: 80vw; height: 90vh"></div>
+                <p class="description">
+                    This line chart visualizes the trends in energy consumption in Australia over time, comparing consumption by fuel type and by industry. The chart displays how energy consumption in these two categories has evolved from 2009 to 2023, reflecting growth patterns and fluctuations. By examining the changes over time, you can identify key trends in Australia's energy consumption and explore how the energy demands of different industries and fuel types have shifted.
+                </p>
+            </div>
+        </main>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+    <script>
+        vegaEmbed("#map", "map.json");
+        vegaEmbed("#circle", "circle.json");
+        vegaEmbed("#area", "area.json");
+    </script>
+</html>
