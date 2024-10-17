@@ -4,7 +4,7 @@
     "width": "container",
     "height": "container",
     "data": {
-        "url": "consume.csv"
+        "url": "https://raw.githubusercontent.com/xshi0035/FIT3179_data_visualization_2/refs/heads/main/consume.csv"
       },
       "config": {
         "padding":20,
