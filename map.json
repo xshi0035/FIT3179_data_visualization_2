@@ -22,7 +22,7 @@
   "width":"container",
   "height": "container",
   "data": {
-    "url": "emission.csv"
+    "url": "https://raw.githubusercontent.com/xshi0035/FIT3179_data_visualization_2/refs/heads/main/emission.csv"
   },
   "params": [
     {
